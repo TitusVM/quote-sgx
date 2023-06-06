@@ -111,6 +111,8 @@ pub mod ext {
             (self.iter(), HasIter)
         }
     }
+    
+    use std::vec::Vec;
 
     impl<'q, T: 'q> RepAsIteratorExt<'q> for Vec<T> {
         type Iter = slice::Iter<'q, T>;

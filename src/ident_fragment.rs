@@ -1,6 +1,9 @@
 use core::fmt;
 use proc_macro2::{Ident, Span};
 use std::borrow::Cow;
+use std::borrow::ToOwned;
+use std::string::String;
+use std::string::ToString;
 
 /// Specialized formatting trait used by `format_ident!`.
 ///

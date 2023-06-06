@@ -102,6 +102,9 @@
     clippy::wrong_self_convention,
 )]
 
+#![no_std]
+extern crate sgx_tstd as std;
+
 #[cfg(feature = "proc-macro")]
 extern crate proc_macro;
 

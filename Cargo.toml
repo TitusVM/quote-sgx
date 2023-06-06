@@ -13,17 +13,20 @@ repository = "https://github.com/dtolnay/quote"
 rust-version = "1.31"
 
 [dependencies]
-proc-macro2 = { version = "1.0.52", default-features = false }
+proc-macro2 = { git = "https://github.com/TitusVM/proc-macro2-sgx.git", optional = true, default-features = false, features = ["mesalock_sgx"] }
+sgx_tstd = { rev = "v1.1.6", git = "https://github.com/apache/incubator-teaclave-sgx-sdk.git", optional = true }
 
 [dev-dependencies]
 rustversion = "1.0"
 trybuild = { version = "1.0.66", features = ["diff"] }
 
 [features]
-default = ["proc-macro"]
+default = ["proc-macro-asdf", "mesalock_sgx", "std"]
+std = ["mesalock_sgx"]
+mesalock_sgx = ["std", "sgx_tstd"]
 # Disabling the proc-macro feature removes the dynamic library dependency on
 # libproc_macro in the rustc compiler.
-proc-macro = ["proc-macro2/proc-macro"]
+proc-macro-asdf = ["proc-macro2"]
 
 [lib]
 doc-scrape-examples = false

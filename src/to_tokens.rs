@@ -2,6 +2,9 @@ use super::TokenStreamExt;
 use core::iter;
 use proc_macro2::{Group, Ident, Literal, Punct, Span, TokenStream, TokenTree};
 use std::borrow::Cow;
+use std::borrow::ToOwned;
+use std::boxed::Box;
+use std::string::String;
 use std::rc::Rc;
 
 /// Types that can be interpolated inside a `quote!` invocation.
