@@ -21,12 +21,12 @@ rustversion = "1.0"
 trybuild = { version = "1.0.66", features = ["diff"] }
 
 [features]
-default = ["proc-macro-asdf", "mesalock_sgx", "std"]
+default = ["proc-macro", "mesalock_sgx", "std"]
 std = ["mesalock_sgx"]
 mesalock_sgx = ["std", "sgx_tstd"]
 # Disabling the proc-macro feature removes the dynamic library dependency on
 # libproc_macro in the rustc compiler.
-proc-macro-asdf = ["proc-macro2"]
+proc-macro = ["proc-macro2"]
 
 [lib]
 doc-scrape-examples = false
